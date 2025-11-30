@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 style="color:#00eaff;">Dashboard</h2>
+
+<div style="display:flex; gap:16px;">
+    <div class="card">
+        <h3>Total Fuel IN</h3>
+        <p>{{ total_in }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Total Fuel OUT</h3>
+        <p>{{ total_out }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Current Stock</h3>
+        <p>{{ stock }}</p>
+    </div>
+</div>
+
+
+<h3 style="margin-top:30px; color:#00f3ff;">Recent Transactions</h3>
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Vehicle</th>
+        <th>Fuel</th>
+        <th>Litres</th>
+        <th>Remarks</th>
+    </tr>
+    {% for r in recent %}
+    <tr>
+        <td>{{r.date}}</td>
+        <td>{{r.type}}</td>
+        <td>{{r.vehicle_no or '-'}}</td>
+        <td>{{r.fuel}}</td>
+        <td>{{r.litres}}</td>
+        <td>{{r.remarks}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

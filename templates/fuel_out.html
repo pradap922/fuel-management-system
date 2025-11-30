@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Fuel Out (Issued to Vehicle)</h2>
+
+<form method="post" class="form-box">
+    <label>Date</label>
+    <input type="date" name="date" required>
+
+    <label>Vehicle</label>
+    <select name="vehicle" required>
+        <option value="">-- Select Vehicle --</option>
+        {% for v in vehicles %}
+        <option value="{{v.id}}">{{v.vehicle_no}}</option>
+        {% endfor %}
+    </select>
+
+    <label>Fuel Type</label>
+    <input type="text" name="fuel" required>
+
+    <label>Litres</label>
+    <input type="number" step="0.01" name="litres" required>
+
+    <label>Remarks</label>
+    <input type="text" name="remarks">
+
+    <button type="submit">Save</button>
+</form>
+
+{% endblock %}

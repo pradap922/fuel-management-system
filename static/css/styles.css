@@ -1,0 +1,222 @@
+/* ===============================
+   GLOBAL UI
+=============================== */
+
+body {
+    margin: 0;
+    background: #0c0f16;
+    font-family: 'Poppins', sans-serif;
+    color: #e0e0e0;
+    opacity: 0;
+    animation: fadeIn 0.7s ease forwards;
+}
+
+/* Page Fade Animation */
+@keyframes fadeIn {
+    0% { opacity: 0; filter: blur(8px); }
+    100% { opacity: 1; filter: blur(0px); }
+}
+
+header {
+    padding: 16px 30px;
+    background: #0f1322;
+    color: #00f3ff;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,255,255,0.2);
+    letter-spacing: .5px;
+}
+
+section {
+    padding: 30px;
+}
+
+/* ===============================
+   NAV BAR
+=============================== */
+
+nav a {
+    color: #8fefff;
+    text-decoration: none;
+    margin-right: 14px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: .25s ease;
+}
+
+nav a:hover {
+    background: rgba(0,255,255,0.14);
+    box-shadow: 0 0 8px rgba(0,255,255,0.4);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+/* ===============================
+   CARDS
+=============================== */
+
+.card {
+    position: relative;
+    background: rgba(15, 22, 35, 0.8);
+    border: 1px solid rgba(0,255,180,0.4);
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,255,200,0.15);
+    backdrop-filter: blur(6px);
+    margin-bottom: 18px;
+    transition: transform .3s ease, box-shadow .4s ease, border .4s ease;
+}
+
+.card h3 {
+    color: #00f9ff;
+    margin: 0;
+    font-size: 17px;
+}
+
+.card p {
+    font-size: 28px;
+    margin-top: 6px;
+    color: #fff;
+    text-shadow: 0 0 12px rgba(0,255,255,0.5);
+}
+
+/* Hover Animation */
+.card:hover {
+    transform: translateY(-6px) scale(1.03);
+    border: 1px solid rgba(0,255,255,0.9);
+    box-shadow: 0 0 25px rgba(0,255,255,0.6);
+}
+
+/* Neon Glow Layer */
+.card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,255,255,0.4), transparent);
+    border-radius: inherit;
+    filter: blur(18px);
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s ease;
+}
+
+.card:hover::after {
+    opacity: 1;
+}
+
+/* ===============================
+   BUTTONS
+=============================== */
+
+.btn {
+    padding: 10px 16px;
+    background: #0d1428;
+    border: 1px solid #00eaff;
+    border-radius: 6px;
+    color: #00eaff;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: .35s ease;
+}
+
+.btn:hover {
+    background: #011b2b;
+    box-shadow: 0 0 10px #00eaff, 0 0 30px #00eaff;
+    transform: translateY(-2px);
+}
+
+/* Optional pulsing glow */
+.btn-glow {
+    animation: glowPulse 2s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+    0%,100% { box-shadow: 0 0 6px #00d6ff; }
+    50%     { box-shadow: 0 0 16px #00f3ff; }
+}
+
+/* ===============================
+   FORM INPUTS
+=============================== */
+
+input, select {
+    background: #0d1322;
+    border: 1px solid #00eaff;
+    padding: 9px;
+    border-radius: 6px;
+    color: #eaffff;
+    transition: .3s;
+    width: 100%;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border: 1px solid #00ffe1;
+    box-shadow: 0 0 12px rgba(0,255,255,0.7);
+    transform: scale(1.02);
+}
+
+/* ===============================
+   TABLE
+=============================== */
+
+.neon-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #0e1421;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.neon-table th {
+    background: #11263a;
+    color: #00f3ff;
+    padding: 12px;
+    letter-spacing: .5px;
+    text-align: left;
+}
+
+.neon-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(0,255,255,0.15);
+    color: #d5d5d5;
+}
+
+/* Row hover animation */
+.neon-table tr {
+    transition: background .2s ease, transform .15s ease;
+}
+
+.neon-table tr:hover {
+    background: rgba(0,255,255,0.10);
+    transform: scale(1.01);
+}
+
+/* ===============================
+   FORMS SECTION BOXES
+=============================== */
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 350px;
+    background: rgba(15,22,35,0.6);
+    padding: 18px;
+    border: 1px solid rgba(0,255,180,.4);
+    border-radius: 10px;
+    box-shadow: 0 0 16px rgba(0,255,255,.12);
+}
+
+/* ===============================
+   COMMON CONTAINERS
+=============================== */
+
+.flex {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}

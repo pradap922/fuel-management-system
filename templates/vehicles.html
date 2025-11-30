@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Vehicles</h2>
+
+<form method="post" class="form-box">
+    <label>Vehicle No.</label>
+    <input type="text" name="vehicle_no" required>
+
+    <label>Driver Name</label>
+    <input type="text" name="driver">
+
+    <button type="submit">Add Vehicle</button>
+</form>
+
+<hr/>
+
+<h3>Vehicle List</h3>
+<table class="neon-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Vehicle No</th>
+            <th>Driver</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for v in rows %}
+        <tr>
+            <td>{{ v.id }}</td>
+            <td>{{ v.vehicle_no }}</td>
+            <td>{{ v.driver }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

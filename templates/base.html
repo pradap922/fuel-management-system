@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fuel Management System</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+<header>
+    <span>⚡ Fuel Management System</span>
+    {% if session.user %}
+    <nav>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/vehicles">Vehicles</a>
+        <a href="/fuel-in">Fuel IN</a>
+        <a href="/fuel-out">Fuel OUT</a>
+        <a href="/report">Reports</a>
+        <a href="/logout">Logout</a>
+    </nav>
+    {% endif %}
+</header>
+
+<section>
+    {% block content %}{% endblock %}
+</section>
+
+</body>
+</html>

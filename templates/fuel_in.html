@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Fuel In (Purchase / Add to Stock)</h2>
+
+<form method="post" class="form-box">
+    <label>Date</label>
+    <input type="date" name="date" value="{{now}}" required>
+
+    <label>Fuel Type</label>
+    <input type="text" name="fuel" placeholder="Diesel / Petrol" required>
+
+    <label>Litres</label>
+    <input type="number" step="0.01" name="litres" required>
+
+    <label>Remarks</label>
+    <input type="text" name="remarks">
+
+    <button type="submit">Save</button>
+</form>
+
+{% endblock %}
