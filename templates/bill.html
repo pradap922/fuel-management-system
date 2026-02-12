@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fuel Bill</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff;
+            color: #000;
+        }
+        .bill-box {
+            width: 420px;
+            margin: auto;
+            border: 2px solid #000;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 6px;
+        }
+        .total {
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .print-btn {
+            margin-top: 15px;
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="bill-box">
+    <h2>Fuel Bill</h2>
+
+    <table>
+        <tr><td>Vehicle No</td><td>{{ r.vehicle_no or '-' }}</td></tr>
+        <tr><td>Date</td><td>{{ r.date }}</td></tr>
+        <tr><td>Fuel Type</td><td>{{ r.fuel }}</td></tr>
+        <tr><td>Quantity</td><td>{{ r.litres }} L</td></tr>
+        <tr><td>Price / Litre</td><td>₹ {{ price }}</td></tr>
+        <tr class="total"><td>Total Amount</td><td>₹ {{ total }}</td></tr>
+        <tr><td>Remarks</td><td>{{ r.remarks }}</td></tr>
+    </table>
+
+    <button class="print-btn" onclick="window.print()">Print Bill</button>
+</div>
+
+</body>
+</html>

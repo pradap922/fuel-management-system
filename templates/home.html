@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+/* ===== FULL SCREEN HOME PAGE ===== */
+
+.hero {
+    width: 100%;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+/* LEFT SIDE TEXT */
+.hero-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-text h1 {
+    font-size: 42px;
+    color: #00f3ff;
+    margin-bottom: 18px;
+    text-shadow: 0 0 18px rgba(0,255,255,0.6);
+}
+
+.hero-text p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #d7faff;
+    margin-bottom: 14px;
+}
+
+.project-info {
+    margin-top: 18px;
+    font-size: 15px;
+    color: #9ffcff;
+}
+
+.project-info span {
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(0,255,255,0.6);
+}
+
+/* LOGIN BUTTON */
+.hero-text a {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 12px 26px;
+    border: 1px solid #00eaff;
+    border-radius: 8px;
+    color: #00eaff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.hero-text a:hover {
+    box-shadow: 0 0 12px #00eaff, 0 0 25px #00eaff;
+    transform: translateY(-2px);
+}
+
+/* RIGHT SIDE IMAGE */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 520px;
+    border-radius: 18px;
+    box-shadow: 0 0 40px rgba(0,255,255,0.35);
+    animation: floatImg 4s ease-in-out infinite;
+}
+
+/* IMAGE FLOAT ANIMATION */
+@keyframes floatImg {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+}
+</style>
+
+<div class="hero">
+
+    <!-- LEFT CONTENT -->
+    <div class="hero-text">
+        <h1>Fuel Management System</h1>
+
+        <p>
+            The Fuel Management System is a web-based application developed to
+            digitally manage fuel purchases, fuel distribution, and vehicle-wise
+            fuel consumption. This system replaces manual fuel logs and ensures
+            accurate, transparent, and real-time fuel tracking.
+        </p>
+
+        <p>
+            The project is implemented using <b>Python Flask</b> for backend logic,
+            <b>SQLite</b> as an offline database, and <b>HTML & CSS</b> for a modern
+            user interface.
+        </p>
+
+        <div class="project-info">
+            🔧 Project Type: College Major Project <br>
+            👨‍💻 Developed By: <span>Mithiran</span> <br>
+            ⚙️ Technology: Python Flask, SQLite, HTML, CSS
+        </div>
+
+        <a href="/login">ADMIN LOGIN</a>
+    </div>
+
+    <!-- RIGHT IMAGE -->
+    <div class="hero-image">
+        <img src="/static/images/fuel.png" alt="Fuel Management System">
+    </div>
+
+</div>
+
+{% endblock %}

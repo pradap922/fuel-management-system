@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+.dashboard-wrapper {
+    width: 100%;
+    min-height: calc(100vh - 100px);
+}
+
+/* GRID */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+}
+
+/* CARD */
+.card {
+    background: linear-gradient(145deg, #0d1224, #121a33);
+    border-radius: 18px;
+    padding: 40px 20px;
+    text-align: center;
+    border: 1px solid rgba(0,255,255,0.25);
+    box-shadow: 0 0 30px rgba(0,255,255,0.35);
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 55px rgba(0,255,255,0.6);
+}
+
+.card img {
+    width: 180px;
+    margin-bottom: 14px;
+}
+
+.card h3 {
+    color: #00f3ff;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.value {
+    font-size: 16px;
+    margin: 6px 0;
+    color: #e0fefe;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1000px) {
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 650px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<div class="dashboard-wrapper">
+
+    <h2>Fuel Dashboard</h2>
+
+    <!-- FUEL CARDS -->
+    <div class="dashboard">
+
+        <div class="card">
+            <img src="/static/images/petrol.png">
+            <h3>Petrol</h3>
+            <div class="value">Fuel IN: {{ summary["Petrol"].in }} L</div>
+            <div class="value">Fuel OUT: {{ summary["Petrol"].out }} L</div>
+            <div class="value"><b>Current Stock: {{ summary["Petrol"].stock }} L</b></div>
+        </div>
+
+        <div class="card">
+            <img src="/static/images/diesel.png">
+            <h3>Diesel</h3>
+            <div class="value">Fuel IN: {{ summary["Diesel"].in }} L</div>
+            <div class="value">Fuel OUT: {{ summary["Diesel"].out }} L</div>
+            <div class="value"><b>Current Stock: {{ summary["Diesel"].stock }} L</b></div>
+        </div>
+
+        <div class="card">
+            <img src="/static/images/oil.png">
+            <h3>Oil</h3>
+            <div class="value">Fuel IN: {{ summary["Oil"].in }} L</div>
+            <div class="value">Fuel OUT: {{ summary["Oil"].out }} L</div>
+            <div class="value"><b>Current Stock: {{ summary["Oil"].stock }} L</b></div>
+        </div>
+
+    </div>
+
+    <!-- RECENT FUEL OUT -->
+    <h3 style="margin-top:50px;">Recent Fuel OUT Transactions</h3>
+
+    {% if recent_out and recent_out|length > 0 %}
+    <table class="neon-table">
+        <tr>
+            <th>Date</th>
+            <th>Vehicle</th>
+            <th>Fuel</th>
+            <th>Litres</th>
+            <th>Type</th>
+        </tr>
+
+        {% for r in recent_out %}
+        <tr>
+            <td>{{ r.date }}</td>
+            <td>{{ r.vehicle_no }}</td>
+            <td>{{ r.fuel }}</td>
+            <td>{{ r.litres }}</td>
+            <td>OUT</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p style="opacity:0.7;">No fuel issued yet.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

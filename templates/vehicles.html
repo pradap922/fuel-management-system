@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Vehicles</h2>
+
+<form method="post" class="form-box">
+    <label>Vehicle No.</label>
+    <input type="text" name="vehicle_no" required>
+
+    <label>Driver Number</label>
+    <input type="number" name="driver">
+
+    <button type="submit">Add Vehicle</button>
+</form>
+
+<hr/>
+
+<h3>Vehicle List</h3>
+
+<table class="neon-table">
+<tr>
+    <th>ID</th>
+    <th>Vehicle No</th>
+    <th>Driver</th>
+    <th>Action</th>
+</tr>
+
+{% for v in rows %}
+<tr>
+    <td>{{ v.id }}</td>
+    <td>{{ v.vehicle_no }}</td>
+    <td>{{ v.driver }}</td>
+    <td>
+        <a href="/edit-vehicle/{{ v.id }}" class="edit-btn">Edit</a>
+        |
+        <a href="/delete-vehicle/{{ v.id }}"
+           class="delete-btn"
+           onclick="return confirm('Are you sure you want to delete this vehicle?');">
+           Delete
+        </a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+<style>
+.edit-btn {
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #00f3ff;
+    color: #00f3ff;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.edit-btn:hover {
+    background: #00f3ff;
+    color: #000;
+}
+
+.delete-btn {
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #ff5c5c;
+    color: #ff5c5c;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.delete-btn:hover {
+    background: #ff5c5c;
+    color: #fff;
+}
+</style>
+
+{% endblock %}

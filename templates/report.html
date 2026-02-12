@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Fuel Report</h2>
+
+<form method="get" class="form-box">
+    <label>From Date</label>
+    <input type="date" name="from" value="{{ f }}" required>
+
+    <label>To Date</label>
+    <input type="date" name="to" value="{{ t }}" required>
+
+    <button type="submit">Filter</button>
+</form>
+
+<table class="neon-table">
+    <tr>
+        <th>Date</th>
+        <th>Type</th>
+        <th>Vehicle</th>
+        <th>Fuel</th>
+        <th>Litres</th>
+        <th>Remarks</th>
+        <th>Action</th>
+    </tr>
+
+    {% for r in data %}
+    <tr>
+        <td>{{ r.date }}</td>
+        <td>{{ r.type }}</td>
+        <td>{{ r.vehicle_no or '-' }}</td>
+        <td>{{ r.fuel }}</td>
+        <td>{{ r.litres }}</td>
+        <td>{{ r.remarks }}</td>
+        <td>
+            <a href="/edit-fuel/{{ r.id }}" class="edit-btn">Edit</a>
+
+            {% if r.type == 'OUT' %}
+                |
+                <a href="/bill/{{ r.id }}" target="_blank" class="print-btn">
+                    Print Bill
+                </a>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<style>
+.neon-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.neon-table th, .neon-table td {
+    border: 1px solid rgba(0,255,255,0.3);
+    padding: 10px;
+    text-align: center;
+}
+
+.neon-table th {
+    background: rgba(0,255,255,0.1);
+    color: #00f3ff;
+}
+
+.edit-btn {
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #00f3ff;
+    color: #00f3ff;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.edit-btn:hover {
+    background: #00f3ff;
+    color: #000;
+}
+
+.print-btn {
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #00ff9c;
+    color: #00ff9c;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.print-btn:hover {
+    background: #00ff9c;
+    color: #000;
+}
+</style>
+
+{% endblock %}

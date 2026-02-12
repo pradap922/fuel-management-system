@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+.login-wrapper {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    width: 360px;
+    padding: 35px;
+    background: rgba(15,20,35,0.7);
+    border-radius: 14px;
+    box-shadow: 0 0 25px rgba(0,255,255,0.3);
+    text-align: center;
+}
+
+.login-box h2 {
+    color: #00f3ff;
+    margin-bottom: 20px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 14px;
+    border-radius: 8px;
+    border: 1px solid #00eaff;
+    background: transparent;
+    color: #fff;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    background: #00eaff;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-box button:hover {
+    box-shadow: 0 0 15px #00eaff;
+}
+
+.error {
+    color: #ff5c5c;
+    margin-bottom: 10px;
+}
+</style>
+
+<div class="login-wrapper">
+    <form method="post" class="login-box">
+        <h2>Gmail Login</h2>
+
+        {% if message %}
+        <div class="error">{{ message }}</div>
+        {% endif %}
+
+        <input type="email" name="email" placeholder="Enter Gmail address" required>
+        <input type="password" name="password" placeholder="Password (simulation)" required>
+
+        <button type="submit">Login</button>
+
+        <p style="margin-top:12px; font-size:13px; color:#9ffcff;">
+            Offline Gmail-style authentication
+        </p>
+    </form>
+</div>
+
+{% endblock %}

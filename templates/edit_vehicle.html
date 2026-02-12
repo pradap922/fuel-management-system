@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Edit Vehicle</h2>
+
+<form method="post" class="form-box">
+    <label>Vehicle Number</label>
+    <input type="text" name="vehicle_no"
+           value="{{ vehicle.vehicle_no }}" required>
+
+    <label>Driver Number</label>
+    <input type="number" name="driver"
+           value="{{ vehicle.driver }}">
+
+    <button type="submit">Update Vehicle</button>
+</form>
+
+{% endblock %}

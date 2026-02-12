@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fuel Management System</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="top-header">
+    <div class="brand">
+        <img src="/static/images/bharat_petroleum.png"
+             alt="Bharat Petroleum"
+             class="brand-logo">
+        <span>Fuel Management System</span>
+    </div>
+
+    {% if session.user %}
+    <nav class="top-nav">
+        <a href="/dashboard">Dashboard</a>
+        <a href="/vehicles">Vehicles</a>
+        <a href="/fuel-in">Fuel IN</a>
+        <a href="/fuel-out">Fuel OUT</a>
+        <a href="/report">Reports</a>
+        <a href="/logout">Logout</a>
+    </nav>
+    {% endif %}
+</header>
+
+<!-- PAGE CONTENT -->
+<section class="main-container">
+    {% block content %}{% endblock %}
+</section>
+
+</body>
+</html>

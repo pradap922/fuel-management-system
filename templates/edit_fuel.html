@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Edit Fuel Record</h2>
+
+<form method="post" class="form-box">
+    <input type="date" name="date" value="{{ fuel.date }}" required>
+    <input type="number" step="0.1" name="litres" value="{{ fuel.litres }}" required>
+    <input name="remarks" value="{{ fuel.remarks }}">
+    <button class="btn">Update</button>
+</form>
+
+{% endblock %}

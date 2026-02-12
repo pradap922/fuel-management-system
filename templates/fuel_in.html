@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Fuel IN</h2>
+
+<style>
+.fuel-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.fuel-card {
+    background: rgba(15,20,40,0.8);
+    padding: 25px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0,255,255,0.3);
+}
+.fuel-card h3 {
+    color: #00f3ff;
+}
+.fuel-card input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+}
+</style>
+
+<div class="fuel-box">
+
+    <!-- PETROL IN -->
+    <form method="post" class="fuel-card">
+        <h3>Petrol IN</h3>
+        <input type="date" name="date" required>
+        <input type="number" step="0.1" name="litres" placeholder="Litres" required>
+        <input type="hidden" name="fuel" value="Petrol">
+        <button class="btn">Add Petrol</button>
+    </form>
+
+    <!-- DIESEL IN -->
+    <form method="post" class="fuel-card">
+        <h3>Diesel IN</h3>
+        <input type="date" name="date" required>
+        <input type="number" step="0.1" name="litres" placeholder="Litres" required>
+        <input type="hidden" name="fuel" value="Diesel">
+        <button class="btn">Add Diesel</button>
+    </form>
+
+    <!-- OIL IN -->
+    <form method="post" class="fuel-card">
+        <h3>Oil IN</h3>
+        <input type="date" name="date" required>
+        <input type="number" step="0.1" name="litres" placeholder="Litres" required>
+        <input type="hidden" name="fuel" value="Oil">
+        <button class="btn">Add Oil</button>
+    </form>
+
+</div>
+
+{% endblock %}
