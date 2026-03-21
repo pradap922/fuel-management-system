@@ -45,36 +45,6 @@ Flask
 
 SQLite (Offline Database)
 
-📂 Project Structure
-fuel_management/
-│
-├── app.py
-├── database.db
-├── requirements.txt
-│
-├── static/
-│   ├── css/
-│   │   └── styles.css
-│   ├── images/
-│   │   ├── petrol.png
-│   │   ├── diesel.png
-│   │   ├── oil.png
-│   │   └── bharat_petroleum.png
-│
-├── templates/
-│   ├── base.html
-│   ├── login.html
-│   ├── dashboard.html
-│   ├── vehicles.html
-│   ├── edit_vehicle.html
-│   ├── fuel_in.html
-│   ├── fuel_out.html
-│   ├── report.html
-│   ├── edit_fuel.html
-│   ├── bill.html
-│
-└── README.md
-
 🔐 Features
 ✅ Admin Login (Offline Gmail Simulation)
 
